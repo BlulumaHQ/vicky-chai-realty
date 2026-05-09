@@ -47,7 +47,8 @@ function Index() {
             alt="Greater Vancouver luxury home exterior"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/10" />
+          {/* Subtle dark overlay for text readability only — no bottom fade */}
+          <div className="absolute inset-0 bg-foreground/25" />
         </div>
         <div className="container-luxe relative z-10 pb-16 md:pb-28 fade-up">
           <div className="eyebrow text-foreground/70 mb-6">

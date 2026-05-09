@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
-import { allListings, getListingBySlug } from "@/data/listings";
+import { allListings, getListingBySlug, type Listing } from "@/data/listings";
 import { ArrowLeft, Bath, BedDouble, Maximize2, Home as HomeIcon } from "lucide-react";
 
 export const Route = createFileRoute("/listings/$slug")({
@@ -49,7 +49,7 @@ export const Route = createFileRoute("/listings/$slug")({
 });
 
 function ListingDetail() {
-  const { listing } = Route.useLoaderData();
+  const { listing } = Route.useLoaderData() as { listing: Listing };
   const isSold = listing.status === "sold";
   const gallery = listing.images.length > 0 ? listing.images : [listing.image];
 
@@ -93,7 +93,7 @@ function ListingDetail() {
               className="h-full w-full object-cover"
             />
           </div>
-          {gallery.slice(1, 5).map((src, i) => (
+          {gallery.slice(1, 5).map((src: string, i: number) => (
             <div key={i} className="aspect-[4/3] overflow-hidden bg-muted hidden md:block">
               <img src={src} alt={`${listing.address} ${i + 2}`} className="h-full w-full object-cover" loading="lazy" />
             </div>
@@ -101,7 +101,7 @@ function ListingDetail() {
         </div>
         {gallery.length > 5 && (
           <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
-            {gallery.slice(5).map((src, i) => (
+            {gallery.slice(5).map((src: string, i: number) => (
               <div key={i} className="aspect-[4/3] overflow-hidden bg-muted">
                 <img src={src} alt={`${listing.address} ${i + 6}`} className="h-full w-full object-cover" loading="lazy" />
               </div>
@@ -122,7 +122,7 @@ function ListingDetail() {
             <div className="mt-12">
               <div className="eyebrow mb-4">Highlights</div>
               <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-foreground/85">
-                {listing.highlights.map((h) => (
+                {listing.highlights.map((h: string) => (
                   <li key={h} className="flex gap-3">
                     <span
                       className="mt-2 h-1 w-4 shrink-0"
