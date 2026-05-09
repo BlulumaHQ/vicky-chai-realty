@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { BrokerageMark } from "./BrokerageMark";
 
 export function Footer() {
   const year = new Date().getFullYear();
