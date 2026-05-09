@@ -75,8 +75,11 @@ function About() {
 
           <div className="grid sm:grid-cols-2 gap-8">
             <div>
-              <div className="eyebrow mb-2">Brokerage</div>
-              <p>RE/MAX Westcoast<br />110 – 6086 Russ Baker Way, Richmond, BC</p>
+              <div className="eyebrow mb-3">Brokerage</div>
+              <BrokerageMark />
+              <p className="mt-4 text-sm text-muted-foreground">
+                110 – 6086 Russ Baker Way<br />Richmond, BC V7B 1B4
+              </p>
             </div>
             <div>
               <div className="eyebrow mb-2">Direct</div>
