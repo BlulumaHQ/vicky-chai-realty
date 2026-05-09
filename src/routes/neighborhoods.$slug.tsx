@@ -12,14 +12,18 @@ export const Route = createFileRoute("/neighborhoods/$slug")({
     loaderData
       ? {
           meta: [
-            { title: `${loaderData.name} Real Estate · Vicky Chai` },
-            { name: "description", content: loaderData.description },
+            { title: `${loaderData.name} Real Estate Guide | Vicky Chai` },
+            {
+              name: "description",
+              content: `${loaderData.name} real estate guide by Richmond Realtor Vicky Chai — ${loaderData.tagline} Explore homes, schools, and lifestyle insights in ${loaderData.city}.`,
+            },
             {
               property: "og:title",
-              content: `${loaderData.name} · Vicky Chai Real Estate`,
+              content: `${loaderData.name} Real Estate Guide | Vicky Chai`,
             },
             { property: "og:description", content: loaderData.tagline },
             { property: "og:image", content: loaderData.image },
+            { name: "twitter:image", content: loaderData.image },
           ],
         }
       : {},
