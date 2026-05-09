@@ -6,17 +6,20 @@ import { neighborhoods } from "@/data/neighborhoods";
 export const Route = createFileRoute("/neighborhoods/")({
   head: () => ({
     meta: [
-      { title: "Richmond & Vancouver Neighbourhoods · Vicky Chai" },
+      { title: "Richmond Real Estate Guide | Vicky Chai" },
       {
         name: "description",
         content:
-          "Local expertise across Richmond, Steveston, Broadmoor, West Cambie, and Vancouver West Side. Insights from a decade-long Richmond realtor.",
+          "Explore Richmond neighborhoods, schools, lifestyle insights, and homes for sale with local Realtor Vicky Chai.",
       },
-      { property: "og:title", content: "Neighbourhoods · Vicky Chai" },
+      { property: "og:title", content: "Richmond Real Estate Guide | Vicky Chai" },
       {
         property: "og:description",
-        content: "Premier neighbourhoods across Richmond and Greater Vancouver.",
+        content:
+          "Explore Richmond neighborhoods, schools, lifestyle insights, and homes for sale with local Realtor Vicky Chai.",
       },
+      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
     ],
   }),
   component: NeighborhoodsIndex,

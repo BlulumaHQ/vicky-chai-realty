@@ -8,18 +8,20 @@ const HEADSHOT =
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Vicky Chai · Richmond Realtor · RE/MAX Westcoast" },
+      { title: "About Vicky Chai | Richmond Realtor" },
       {
         name: "description",
         content:
-          "A bilingual Richmond realtor with an economics and accounting background, helping families buy and sell across Greater Vancouver since 2015.",
+          "Learn more about Richmond Realtor Vicky Chai and her personalized bilingual approach to helping families buy and sell homes.",
       },
-      { property: "og:title", content: "About Vicky Chai" },
+      { property: "og:title", content: "About Vicky Chai | Richmond Realtor" },
       {
         property: "og:description",
-        content: "Bilingual Richmond realtor with RE/MAX Westcoast since 2015.",
+        content:
+          "Learn more about Richmond Realtor Vicky Chai and her personalized bilingual approach to helping families buy and sell homes.",
       },
-      { property: "og:image", content: HEADSHOT },
+      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
     ],
   }),
   component: About,

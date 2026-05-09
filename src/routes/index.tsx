@@ -12,25 +12,59 @@ const HEADSHOT =
 const HERO_IMG =
   "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&q=80";
 
+const SITE_URL = "https://vicky-chai-realty.lovable.app";
+const OG_IMG = `${SITE_URL}/og-image.jpg`;
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      {
-        title:
-          "Vicky Chai · Richmond & Vancouver Real Estate Advisor | RE/MAX Westcoast",
-      },
+      { title: "Vicky Chai Real Estate | Richmond Realtor" },
       {
         name: "description",
         content:
-          "Trusted bilingual real estate advisor helping families buy and sell across Richmond and Greater Vancouver with calm, strategic guidance in English and Mandarin.",
+          "Richmond Realtor Vicky Chai helps families buy and sell homes across Greater Vancouver with personalized bilingual real estate guidance and local market expertise.",
       },
-      { property: "og:title", content: "Vicky Chai Real Estate · Richmond, BC" },
+      { property: "og:title", content: "Vicky Chai Real Estate | Richmond Realtor" },
       {
         property: "og:description",
         content:
-          "Calm, strategic guidance for buyers and sellers across Richmond and Greater Vancouver. Bilingual EN · 中文.",
+          "Helping families buy and sell homes across Greater Vancouver with trusted bilingual real estate guidance.",
       },
-      { property: "og:image", content: HERO_IMG },
+      { property: "og:image", content: OG_IMG },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { name: "twitter:title", content: "Vicky Chai Real Estate | Richmond Realtor" },
+      {
+        name: "twitter:description",
+        content:
+          "Helping families buy and sell homes across Greater Vancouver with trusted bilingual real estate guidance.",
+      },
+      { name: "twitter:image", content: OG_IMG },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "RealEstateAgent",
+          name: "Vicky Chai",
+          image: OG_IMG,
+          url: SITE_URL,
+          telephone: "+1-604-726-6802",
+          email: "VickyChai@remax.net",
+          jobTitle: "Real Estate Advisor",
+          knowsLanguage: ["English", "Mandarin Chinese"],
+          worksFor: { "@type": "RealEstateOrganization", name: "RE/MAX Westcoast" },
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "110 - 6086 Russ Baker Way",
+            addressLocality: "Richmond",
+            addressRegion: "BC",
+            postalCode: "V7B 1B4",
+            addressCountry: "CA",
+          },
+          areaServed: ["Richmond", "Vancouver", "Greater Vancouver"],
+        }),
+      },
     ],
   }),
   component: Index,

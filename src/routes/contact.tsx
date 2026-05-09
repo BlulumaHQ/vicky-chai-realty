@@ -5,17 +5,20 @@ import { useState } from "react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Vicky Chai · Richmond Realtor" },
+      { title: "Contact Vicky Chai | Richmond Real Estate" },
       {
         name: "description",
         content:
-          "Reach out to Vicky Chai for a no-pressure consultation, home valuation, or buyer strategy session in Richmond and Greater Vancouver.",
+          "Connect with Richmond Realtor Vicky Chai for trusted bilingual real estate guidance across Greater Vancouver.",
       },
-      { property: "og:title", content: "Contact Vicky Chai" },
+      { property: "og:title", content: "Contact Vicky Chai | Richmond Real Estate" },
       {
         property: "og:description",
-        content: "Book a no-pressure real estate consultation in Richmond, BC.",
+        content:
+          "Connect with Richmond Realtor Vicky Chai for trusted bilingual real estate guidance across Greater Vancouver.",
       },
+      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
     ],
   }),
   component: Contact,
