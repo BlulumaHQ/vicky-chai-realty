@@ -11,16 +11,21 @@ export const Route = createFileRoute("/listings/$slug")({
   },
   head: ({ loaderData }) => {
     const l = loaderData?.listing;
-    if (!l) return { meta: [{ title: "Listing · Vicky Chai" }] };
+    if (!l) return { meta: [{ title: "Listing | Vicky Chai Real Estate" }] };
+    const title = `${l.address}, ${l.city} BC | Vicky Chai Real Estate`;
+    const desc = `View property details, photos, and home information for this ${l.city} listing represented by Richmond Realtor Vicky Chai. ${l.beds} bed · ${l.baths} bath · ${l.sqft.toLocaleString()} sq ft · ${l.price}.`;
+    const img = l.image;
     return {
       meta: [
-        {
-          title: `${l.address}, ${l.city} · ${l.price} · Vicky Chai`,
-        },
-        { name: "description", content: l.description },
-        { property: "og:title", content: `${l.address} · ${l.price}` },
-        { property: "og:description", content: l.description },
-        { property: "og:image", content: l.image },
+        { title },
+        { name: "description", content: desc },
+        { property: "og:title", content: title },
+        { property: "og:description", content: desc },
+        { property: "og:image", content: img },
+        { property: "og:type", content: "article" },
+        { name: "twitter:title", content: title },
+        { name: "twitter:description", content: desc },
+        { name: "twitter:image", content: img },
       ],
     };
   },
