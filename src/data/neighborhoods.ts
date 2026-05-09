@@ -56,6 +56,6 @@ export const neighborhoods: Neighborhood[] = [
     description:
       "From UBC and Kitsilano to Shaughnessy, Vancouver's West Side offers premier real estate with exceptional long-term value.",
     image:
-      "https://images.unsplash.com/photo-1582235253302-87b81c0c1ce0?auto=format&fit=crop&w=1400&q=70",
+      "https://images.unsplash.com/photo-1609825488888-3a766db05542?auto=format&fit=crop&w=1400&q=70",
   },
 ];
