@@ -6,7 +6,7 @@ const nav = [
   { to: "/", label: "Home" },
   { to: "/listings", label: "Listings" },
   { to: "/sold", label: "Sold" },
-  { to: "/neighborhoods", label: "Neighborhoods" },
+  { to: "/neighborhoods", label: "Areas" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ] as const;
@@ -26,7 +26,7 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-background/85 backdrop-blur-md border-b border-border"
+          ? "bg-background/90 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       }`}
     >
@@ -40,12 +40,12 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-9">
+        <nav className="hidden lg:flex items-center gap-10 xl:gap-12">
           {nav.map((n) => (
             <Link
               key={n.to}
               to={n.to}
-              className="text-[0.78rem] uppercase tracking-[0.18em] text-foreground/80 hover:text-foreground transition-colors link-underline"
+              className="text-[0.78rem] uppercase tracking-[0.18em] text-foreground/75 hover:text-foreground transition-colors whitespace-nowrap"
               activeProps={{ className: "text-foreground" }}
             >
               {n.label}
@@ -53,11 +53,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
-          <span className="eyebrow">EN · 中文</span>
-          <Link to="/contact" className="btn-luxe">
-            Book a Consultation
-          </Link>
+        <div className="hidden lg:flex items-center">
+          <span className="eyebrow text-[0.65rem]">EN · 中文</span>
         </div>
 
         <button
@@ -90,13 +87,6 @@ export function Header() {
             ))}
             <div className="hairline mt-8" />
             <span className="eyebrow mt-6">EN · 中文 · Mandarin</span>
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="btn-luxe self-start mt-2"
-            >
-              Book a Consultation
-            </Link>
           </nav>
         </div>
       )}
