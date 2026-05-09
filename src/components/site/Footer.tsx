@@ -28,6 +28,9 @@ export function Footer() {
               110 – 6086 Russ Baker Way, Richmond, BC V7B 1B4
             </p>
           </div>
+          <div className="mt-8 pt-6 border-t border-border/60">
+            <BrokerageMark />
+          </div>
         </div>
 
         <div>
@@ -35,7 +38,7 @@ export function Footer() {
           <ul className="space-y-3 text-sm">
             <li><Link to="/listings" className="link-underline">Featured Listings</Link></li>
             <li><Link to="/sold" className="link-underline">Sold</Link></li>
-            <li><Link to="/neighborhoods" className="link-underline">Neighborhoods</Link></li>
+            <li><Link to="/neighborhoods" className="link-underline">Areas</Link></li>
             <li><Link to="/about" className="link-underline">About Vicky</Link></li>
             <li><Link to="/contact" className="link-underline">Contact</Link></li>
           </ul>
