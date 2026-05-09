@@ -16,6 +16,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as NeighborhoodsIndexRouteImport } from './routes/neighborhoods.index'
 import { Route as NeighborhoodsSlugRouteImport } from './routes/neighborhoods.$slug'
+import { Route as ListingsSlugRouteImport } from './routes/listings.$slug'
 
 const SoldRoute = SoldRouteImport.update({
   id: '/sold',
@@ -52,13 +53,19 @@ const NeighborhoodsSlugRoute = NeighborhoodsSlugRouteImport.update({
   path: '/neighborhoods/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ListingsSlugRoute = ListingsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ListingsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/listings': typeof ListingsRoute
+  '/listings': typeof ListingsRouteWithChildren
   '/sold': typeof SoldRoute
+  '/listings/$slug': typeof ListingsSlugRoute
   '/neighborhoods/$slug': typeof NeighborhoodsSlugRoute
   '/neighborhoods/': typeof NeighborhoodsIndexRoute
 }
@@ -66,8 +73,9 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/listings': typeof ListingsRoute
+  '/listings': typeof ListingsRouteWithChildren
   '/sold': typeof SoldRoute
+  '/listings/$slug': typeof ListingsSlugRoute
   '/neighborhoods/$slug': typeof NeighborhoodsSlugRoute
   '/neighborhoods': typeof NeighborhoodsIndexRoute
 }
@@ -76,8 +84,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/listings': typeof ListingsRoute
+  '/listings': typeof ListingsRouteWithChildren
   '/sold': typeof SoldRoute
+  '/listings/$slug': typeof ListingsSlugRoute
   '/neighborhoods/$slug': typeof NeighborhoodsSlugRoute
   '/neighborhoods/': typeof NeighborhoodsIndexRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/listings'
     | '/sold'
+    | '/listings/$slug'
     | '/neighborhoods/$slug'
     | '/neighborhoods/'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/listings'
     | '/sold'
+    | '/listings/$slug'
     | '/neighborhoods/$slug'
     | '/neighborhoods'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/listings'
     | '/sold'
+    | '/listings/$slug'
     | '/neighborhoods/$slug'
     | '/neighborhoods/'
   fileRoutesById: FileRoutesById
@@ -115,7 +127,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ListingsRoute: typeof ListingsRoute
+  ListingsRoute: typeof ListingsRouteWithChildren
   SoldRoute: typeof SoldRoute
   NeighborhoodsSlugRoute: typeof NeighborhoodsSlugRoute
   NeighborhoodsIndexRoute: typeof NeighborhoodsIndexRoute
@@ -172,14 +184,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof NeighborhoodsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/listings/$slug': {
+      id: '/listings/$slug'
+      path: '/$slug'
+      fullPath: '/listings/$slug'
+      preLoaderRoute: typeof ListingsSlugRouteImport
+      parentRoute: typeof ListingsRoute
+    }
   }
 }
+
+interface ListingsRouteChildren {
+  ListingsSlugRoute: typeof ListingsSlugRoute
+}
+
+const ListingsRouteChildren: ListingsRouteChildren = {
+  ListingsSlugRoute: ListingsSlugRoute,
+}
+
+const ListingsRouteWithChildren = ListingsRoute._addFileChildren(
+  ListingsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ListingsRoute: ListingsRoute,
+  ListingsRoute: ListingsRouteWithChildren,
   SoldRoute: SoldRoute,
   NeighborhoodsSlugRoute: NeighborhoodsSlugRoute,
   NeighborhoodsIndexRoute: NeighborhoodsIndexRoute,
@@ -187,3 +218,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
