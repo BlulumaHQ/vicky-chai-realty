@@ -7,17 +7,20 @@ import { soldListings } from "@/data/listings";
 export const Route = createFileRoute("/sold")({
   head: () => ({
     meta: [
-      { title: "Recently Sold · Vicky Chai Real Estate" },
+      { title: "Sold Listings | Vicky Chai Real Estate" },
       {
         name: "description",
         content:
-          "Recent successful transactions across Richmond and Greater Vancouver — proof of Vicky Chai's market expertise and client-first approach.",
+          "View recently sold homes represented by Richmond Realtor Vicky Chai across Greater Vancouver.",
       },
-      { property: "og:title", content: "Recently Sold · Vicky Chai" },
+      { property: "og:title", content: "Sold Listings | Vicky Chai Real Estate" },
       {
         property: "og:description",
-        content: "Recent sales across Richmond and Greater Vancouver.",
+        content:
+          "View recently sold homes represented by Richmond Realtor Vicky Chai across Greater Vancouver.",
       },
+      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
     ],
   }),
   component: Sold,
