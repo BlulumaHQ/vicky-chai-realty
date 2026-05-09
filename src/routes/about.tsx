@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
+import { BrokerageMark } from "@/components/site/BrokerageMark";
 
 const HEADSHOT =
   "https://assets.rew.ca/property-agent/image/81435/6705_2FF6644F-508D-4B38-ACC8-CDE6A15F1A13.jpeg?auto=format&fit=crop&w=900&h=1100";
