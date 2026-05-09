@@ -47,26 +47,27 @@ function Index() {
             alt="Greater Vancouver luxury home exterior"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/10" />
+          {/* Subtle dark overlay for text readability only — no bottom fade */}
+          <div className="absolute inset-0 bg-foreground/25" />
         </div>
-        <div className="container-luxe relative z-10 pb-16 md:pb-28 fade-up">
-          <div className="eyebrow text-foreground/70 mb-6">
+        <div className="container-luxe relative z-10 pb-16 md:pb-28 fade-up text-background">
+          <div className="eyebrow !text-background/80 mb-6">
             English · 中文 · Richmond · Greater Vancouver
           </div>
-          <h1 className="display text-5xl md:text-7xl lg:text-8xl max-w-4xl text-foreground">
+          <h1 className="display text-5xl md:text-7xl lg:text-8xl max-w-4xl text-background">
             Helping families buy & sell with confidence across Greater Vancouver.
           </h1>
-          <p className="mt-8 max-w-xl text-base md:text-lg text-foreground/80 leading-relaxed">
+          <p className="mt-8 max-w-xl text-base md:text-lg text-background/85 leading-relaxed">
             A calm, strategic approach to one of life's most important decisions.
             Personal, bilingual advisory built on a decade of Richmond market
             expertise.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link to="/contact" className="btn-luxe">
-              Book a Consultation
-            </Link>
-            <Link to="/listings" className="btn-ghost text-foreground">
+            <Link to="/listings" className="btn-luxe bg-background text-foreground hover:bg-background/90">
               View Featured Listings
+            </Link>
+            <Link to="/contact" className="btn-ghost text-background border border-background/40">
+              Get in Touch
             </Link>
           </div>
         </div>

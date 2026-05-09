@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import type { Listing } from "@/data/listings";
 
 export function ListingCard({
@@ -9,10 +10,9 @@ export function ListingCard({
 }) {
   const isSpot = variant === "spotlight";
   return (
-    <a
-      href={listing.sourceUrl}
-      target="_blank"
-      rel="noopener noreferrer"
+    <Link
+      to="/listings/$slug"
+      params={{ slug: listing.slug }}
       className={`group block ${
         isSpot ? "md:grid md:grid-cols-2 md:gap-12 md:items-center" : ""
       }`}
@@ -62,7 +62,7 @@ export function ListingCard({
           View Details
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 
@@ -73,7 +73,10 @@ export function ListingsGrid({
   listings: Listing[];
   emptyMessage?: string;
 }) {
-  if (listings.length === 0) return emptyMessage ? <p className="text-muted-foreground">{emptyMessage}</p> : null;
+  if (listings.length === 0)
+    return emptyMessage ? (
+      <p className="text-muted-foreground">{emptyMessage}</p>
+    ) : null;
   if (listings.length === 1) {
     return (
       <div className="max-w-5xl mx-auto">
@@ -90,12 +93,18 @@ export function ListingsGrid({
       </div>
     );
   }
+  if (listings.length === 3) {
+    return (
+      <div className="grid gap-10 md:gap-12 md:grid-cols-3">
+        {listings.map((l) => (
+          <ListingCard key={l.id} listing={l} />
+        ))}
+      </div>
+    );
+  }
+  // 4–6: balanced 2-col tablet, 3-col desktop
   return (
-    <div
-      className={`grid gap-10 md:gap-12 ${
-        listings.length >= 3 ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2"
-      }`}
-    >
+    <div className="grid gap-10 md:gap-12 md:grid-cols-2 lg:grid-cols-3">
       {listings.map((l) => (
         <ListingCard key={l.id} listing={l} />
       ))}
