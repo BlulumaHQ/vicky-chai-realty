@@ -72,24 +72,44 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Vicky Chai Real Estate is a premium, conversion-focused personal brand website for a Richmond realtor." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Vicky Chai Real Estate is a premium, conversion-focused personal brand website for a Richmond realtor." },
+      { title: "Vicky Chai Real Estate | Richmond Realtor" },
+      {
+        name: "description",
+        content:
+          "Richmond Realtor Vicky Chai helps families buy and sell homes across Greater Vancouver with personalized bilingual real estate guidance and local market expertise.",
+      },
+      { name: "author", content: "Vicky Chai Real Estate" },
+      {
+        name: "keywords",
+        content:
+          "Richmond Realtor, Richmond Real Estate, Greater Vancouver Realtor, Mandarin Realtor, Bilingual Realtor, Richmond Homes For Sale, Vancouver Homes For Sale, Richmond Condos, RE/MAX Westcoast",
+      },
+      { property: "og:site_name", content: "Vicky Chai Real Estate" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Vicky Chai Real Estate is a premium, conversion-focused personal brand website for a Richmond realtor." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4c6ec082-54d8-47f8-8a5d-83fb8d33991f/id-preview-37771b44--86cbb46f-cb6e-48a4-b08f-18190cbe88e9.lovable.app-1778285246110.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4c6ec082-54d8-47f8-8a5d-83fb8d33991f/id-preview-37771b44--86cbb46f-cb6e-48a4-b08f-18190cbe88e9.lovable.app-1778285246110.png" },
+      { property: "og:locale", content: "en_CA" },
+      { property: "og:title", content: "Vicky Chai Real Estate | Richmond Realtor" },
+      {
+        property: "og:description",
+        content:
+          "Helping families buy and sell homes across Greater Vancouver with trusted bilingual real estate guidance.",
+      },
+      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { property: "og:image:width", content: "1216" },
+      { property: "og:image:height", content: "640" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Vicky Chai Real Estate | Richmond Realtor" },
+      {
+        name: "twitter:description",
+        content:
+          "Helping families buy and sell homes across Greater Vancouver with trusted bilingual real estate guidance.",
+      },
+      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "canonical", href: "https://vicky-chai-realty.lovable.app/" },
     ],
   }),
   shellComponent: RootShell,
