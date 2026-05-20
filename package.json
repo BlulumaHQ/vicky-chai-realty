@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "postbuild": "cp -r dist/client/. dist/ && mv dist/_shell.html dist/index.html && rm -rf dist/client dist/server",
+    "build:static": "vite build && node scripts/static-build.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
