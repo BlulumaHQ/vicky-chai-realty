@@ -66,7 +66,7 @@ export function Footer() {
             >
               Bluluma
             </a>
-          </div>
+          {" "}<span className="block mt-1 opacity-80" data-concept-note>Design concept for portfolio purposes only. Not the official website of Vicky Chai.</span></div>
           <div>Personal Real Estate Corporation · RE/MAX Westcoast</div>
         </div>
       </div>
