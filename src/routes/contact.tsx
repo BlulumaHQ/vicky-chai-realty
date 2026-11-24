@@ -17,8 +17,8 @@ export const Route = createFileRoute("/contact")({
         content:
           "Connect with Richmond Realtor Vicky Chai for trusted bilingual real estate guidance across Greater Vancouver.",
       },
-      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
   }),
   component: Contact,

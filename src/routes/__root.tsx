@@ -93,7 +93,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Helping families buy and sell homes across Greater Vancouver with trusted bilingual real estate guidance.",
       },
-      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "/og-image.jpg" },
       { property: "og:image:width", content: "1216" },
       { property: "og:image:height", content: "640" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -103,13 +103,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Helping families buy and sell homes across Greater Vancouver with trusted bilingual real estate guidance.",
       },
-      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
-      { rel: "canonical", href: "https://vicky-chai-realty.lovable.app/" },
+      { rel: "canonical", href: "/og-image.jpg" },
     ],
   }),
   shellComponent: RootShell,

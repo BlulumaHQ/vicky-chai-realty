@@ -19,8 +19,8 @@ export const Route = createFileRoute("/listings")({
         content:
           "Browse featured homes and real estate listings represented by Richmond Realtor Vicky Chai across Greater Vancouver.",
       },
-      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
   }),
   component: Listings,

@@ -20,8 +20,8 @@ export const Route = createFileRoute("/about")({
         content:
           "Learn more about Richmond Realtor Vicky Chai and her personalized bilingual approach to helping families buy and sell homes.",
       },
-      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
   }),
   component: About,

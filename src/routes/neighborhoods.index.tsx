@@ -18,8 +18,8 @@ export const Route = createFileRoute("/neighborhoods/")({
         content:
           "Explore Richmond neighborhoods, schools, lifestyle insights, and homes for sale with local Realtor Vicky Chai.",
       },
-      { property: "og:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
-      { name: "twitter:image", content: "https://vicky-chai-realty.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "/og-image.jpg" },
+      { name: "twitter:image", content: "/og-image.jpg" },
     ],
   }),
   component: NeighborhoodsIndex,
